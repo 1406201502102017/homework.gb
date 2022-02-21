@@ -19,9 +19,9 @@ public class Notebook implements Comparable {
             public int ram;
             public String brand;
 
-            public Notebook(int notebookPrice, int ram, String brand)
+            public Notebook(int price, int ram, String brand)
             {
-                this.price = notebookPrice;
+                this.price = price;
                 this.ram = ram;
                 this.brand = brand;
             }
