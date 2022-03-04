@@ -1,5 +1,6 @@
 package ru.geekbrains.lessons.les3;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +10,8 @@ public class Practice {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        randomNum(3);
+        //randomNum(3);
+        guessWordGame();
     }
 // 1. Написать программу, которая загадывает случайное число от 0 до 9 и пользователю даётся 3 попытки угадать это число. При каждой попытке компьютер должен сообщить, больше ли указанное пользователем число, чем загаданное, или меньше. После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
     public static void randomNum(int n) {
@@ -38,7 +40,6 @@ public class Practice {
                 break;
         }
     }
-}
 // 2. * Создать массив из слов
 //String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"}.
 //При запуске программы компьютер загадывает слово, запрашивает ответ у пользователя, сравнивает его с загаданным словом и сообщает, правильно ли ответил пользователь. Если слово не угадано, компьютер показывает буквы, которые стоят на своих местах.
@@ -50,6 +51,34 @@ public class Practice {
 //char a = str.charAt(0); - метод, вернет char, который стоит в слове str на первой позиции
 //Играем до тех пор, пока игрок не отгадает слово.
 //Используем только маленькие буквы.
+    public static void guessWordGame() {
+        String[] words = {
+                "apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"
+        };
+        String wordComp = words[random.nextInt(words.length)];
+        System.out.println(wordComp); //проверка
+        String wordHum;
+        char[] gl = new char[15];
+        Arrays.fill(gl, '#');
+        System.out.println("Компьютер хочет найти слово из списка");
+        System.out.println(Arrays.toString(words));
+
+        while (true) {
+            Arrays.fill(gl, '#');
+            System.out.print("Ввести вариант ---> ");
+            wordHum = sc.next();
+
+            if (wordHum.toLowerCase().equals(wordComp)) {
+                System.out.println("Угадал");
+                break;
+            }
+            for (int i = 0; i < wordHum.length() & i < wordComp.length(); i++) {
+                if (wordHum.charAt(i) == wordComp.charAt(i)) gl[i] = wordComp.charAt(i);
+            }
+            System.out.println("Угадал буквы");
+            System.out.println(new String(gl));
+        }
+    }
+}
 
 
-// Постараюсь решить 2ю задачу к пятнице!!!!!
