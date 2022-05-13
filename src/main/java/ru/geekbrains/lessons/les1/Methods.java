@@ -1,7 +1,5 @@
 package ru.geekbrains.lessons.les1;
 
-import java.util.Scanner;
-
 public class Methods {
 // 1. Создать пустой проект в IntelliJ IDEA и прописать метод main().
     public static void main(String[] args) { // задача 1
@@ -75,3 +73,4 @@ public class Methods {
         }
     }
 }
+
